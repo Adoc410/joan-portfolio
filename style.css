@@ -799,36 +799,6 @@ footer { padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; 
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ======================== VIDEO DEMO MODAL ======================== */
-.video-modal-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 1.5rem; animation: fadeIn 0.2s ease; }
-.video-modal-overlay.open { display: flex; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-.video-modal { background: var(--color-bg); border: 0.5px solid var(--color-border-strong); border-radius: var(--radius-lg); width: 100%; max-width: 720px; box-shadow: var(--shadow-lg); animation: modalSlideUp 0.28s cubic-bezier(0.34,1.56,0.64,1) both; overflow: hidden; }
-@keyframes modalSlideUp { from { opacity: 0; transform: translateY(28px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-
-.video-modal-header { display: flex; align-items: flex-start; justify-content: space-between; padding: 1.5rem 1.5rem 1rem; border-bottom: 0.5px solid var(--color-border); }
-.video-modal-tag { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.13em; color: #8B5E3C; margin-bottom: 4px; }
-[data-theme="dark"] .video-modal-tag { color: #C9A84C; }
-.video-modal-title { font-family: var(--font-display); font-size: 22px; font-weight: 300; letter-spacing: -0.5px; color: var(--color-text); font-style: italic; }
-
-.video-modal-close { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: var(--radius-sm); border: 0.5px solid var(--color-border); background: var(--color-surface); color: var(--color-text-muted); cursor: pointer; transition: background 0.2s, color 0.2s; flex-shrink: 0; }
-.video-modal-close:hover { background: var(--color-border); color: var(--color-text); }
-
-.video-modal-body { padding: 1.25rem 1.5rem; }
-.video-placeholder { background: var(--color-surface); border: 0.5px dashed var(--color-border-strong); border-radius: var(--radius-md); min-height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-
-.video-play-icon { width: 72px; height: 72px; border-radius: 50%; background: #FDF4E7; border: 0.5px solid #DEAD8A; display: flex; align-items: center; justify-content: center; color: #8B5E3C; }
-[data-theme="dark"] .video-play-icon { background: #1A1608; border-color: rgba(201,168,76,0.3); color: #C9A84C; }
-
-.video-placeholder-text { font-size: 15px; font-weight: 500; color: var(--color-text-muted); }
-.video-placeholder-sub { font-size: 12px; color: var(--color-text-faint); text-align: center; max-width: 300px; line-height: 1.6; }
-
-.video-modal-footer { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-top: 0.5px solid var(--color-border); flex-wrap: wrap; gap: 10px; }
-.video-modal-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-.video-gh-link { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted); border: 0.5px solid var(--color-border); padding: 7px 14px; border-radius: var(--radius-pill); transition: color 0.2s, border-color 0.2s; }
-.video-gh-link:hover { color: var(--color-text); border-color: var(--color-border-strong); }
-
 /* ======================== AI CHAT WIDGET ======================== */
 .ai-fab { position: fixed; bottom: 28px; right: 28px; z-index: 400; width: 56px; height: 56px; border-radius: 50%; background: var(--color-text); color: var(--color-bg); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s, background 0.3s; }
 .ai-fab:hover { transform: scale(1.08); }

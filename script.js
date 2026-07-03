@@ -152,53 +152,6 @@ styleEl.textContent = `@keyframes shake{0%,100%{transform:translateX(0)}20%{tran
 document.head.appendChild(styleEl);
 
 // ========================
-// VIDEO DEMO MODAL
-// ========================
-const PROJECT_DATA = {
-  healthbot:  { title:'HealthBot AI',                stack:['LangChain','LangGraph','FAISS','ChromaDB','Streamlit'], videoSrc:null, youtubeSrc:null, github:'https://github.com/Adoc410' },
-  studycoach: { title:'AI Study Coach Agent',        stack:['LangGraph','Next.js 14','GPT-4o','Zod'],               videoSrc:null, youtubeSrc:null, github:'https://github.com/Adoc410' },
-  interview:  { title:'AI Interview Prep Master',    stack:['Streamlit','OpenAI','Anthropic','Gemini'],              videoSrc:null, youtubeSrc:null, github:'https://github.com/Adoc410' },
-  agri:       { title:'Agricultural Disease Asst.',  stack:['React','FastAPI','AI Vision','Python'],                 videoSrc:null, youtubeSrc:null, github:'https://github.com/Adoc410' },
-  report:     { title:'AI Report Generator',         stack:['Python','OpenAI','smtplib','pytest'],                   videoSrc:null, youtubeSrc:null, github:'https://github.com/Adoc410' },
-  chess:      { title:'Chess Capture Checker',       stack:['Python','pytest','CLI','PEP 8'],                        videoSrc:null, youtubeSrc:null, github:'https://github.com/Adoc410' }
-};
-
-function escapeHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function openVideoModal(projectKey) {
-  const d = PROJECT_DATA[projectKey]; if (!d) return;
-  document.getElementById('videoModalTitle').textContent = d.title;
-  document.getElementById('videoModalStack').innerHTML = d.stack.map(s => `<span class="pill pill-gray">${escapeHtml(s)}</span>`).join('');
-  document.querySelector('.video-gh-link').href = d.github;
-  const body = document.getElementById('videoPlaceholder');
-  if (d.youtubeSrc) {
-    body.innerHTML = `<iframe width="100%" height="340" src="${d.youtubeSrc}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:8px;"></iframe>`;
-  } else if (d.videoSrc) {
-    body.innerHTML = `<video controls width="100%" style="border-radius:8px;max-height:340px;"><source src="${d.videoSrc}" type="video/mp4"></video>`;
-  } else {
-    body.innerHTML = `
-      <div class="video-play-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-      <div class="video-placeholder-text">Demo coming soon</div>
-      <div class="video-placeholder-sub">Set <code style="font-size:11px;background:var(--color-border);padding:2px 6px;border-radius:4px;">videoSrc</code> or <code style="font-size:11px;background:var(--color-border);padding:2px 6px;border-radius:4px;">youtubeSrc</code> in script.js PROJECT_DATA</div>`;
-  }
-  document.getElementById('videoModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeVideoModal(event, force) {
-  if (force || (event && event.target === document.getElementById('videoModal'))) {
-    document.getElementById('videoModal').classList.remove('open');
-    document.body.style.overflow = '';
-    const v = document.querySelector('#videoPlaceholder video'); if (v) v.pause();
-    const f = document.querySelector('#videoPlaceholder iframe'); if (f) { const s = f.src; f.src = s; }
-  }
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(null, true); });
-
-// ========================
 // AI ASSISTANT
 // ========================
 const aiChatPanel   = document.getElementById('aiChatPanel');
